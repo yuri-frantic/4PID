@@ -27,7 +27,7 @@ class QuadCopterController:
         self.yaw_rate_controller = PID()
 
         # Пример простого маршрута
-        self._mission = [[0, 0, 2, 0], [0, 0, 2, 1], [0, 0, 2, 0], [10, 5, 2, 0], [3, 20, 3, 0], [-11, -5, 8, 0], [1, 1, 1, 0]] 
+        self._mission = [[0, 0, 2, 0], [0, 0, 2, 1], [0, 0, 2, 1], [10, 5, 2, -1], [3, 20, 3, 0], [-11, -5, 8, 0], [1, 1, 1, 0]] 
         self._current_mission_index = 0
 
 
@@ -66,7 +66,7 @@ class QuadCopterController:
 
         cmd_trust = self.velocity_controller_z.saturation(cmd_trust, cs.min_rotors_rpm, cs.max_rotors_rpm)
 
-        target_pitch_roll = self._rotation2d(state_vector[States.YAW][0]).transpose() @ np.array([[target_pitch][0], [target_roll][0]])
+        target_pitch_roll = self._rotation2d(state_vector[States.YAW][0]) @ np.array([[target_pitch][0], [target_roll][0]])
         
         target_roll = target_pitch_roll[0]
         target_pitch = target_pitch_roll[1]
