@@ -25,7 +25,7 @@ class Simulator:
             self.model.update_state(u, self.dt)
             self._send_pose_data(state)
             self.time += self.dt
-            tm.sleep(self.dt/5)
+            tm.sleep(self.dt/10)
 
     def _send_pose_data(self, state):
         # Упаковка и отправка данных о состоянии ЛА для визуализации

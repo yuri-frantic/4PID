@@ -27,7 +27,7 @@ class QuadCopterController:
         self.yaw_rate_controller = PID()
 
         # Пример простого маршрута
-        self._mission = [[0, 0, 2, 0], [0, 0, 2, 1], [0, 0, 2, 0], [10, 5, 2, 0], [3, 20, 3, 0], [1, 1, 1, 0], [1, 1, 1, 0]] 
+        self._mission = [[0, 0, 2, 0], [0, 0, 2, 1], [0, 0, 2, 0], [10, 5, 2, 0], [3, 20, 3, 0], [-11, -5, 8, 0], [1, 1, 1, 0]] 
         self._current_mission_index = 0
 
 
@@ -45,7 +45,7 @@ class QuadCopterController:
         if ((abs(self._mission[self._current_mission_index][0] - state_vector[States.X])) < 0.2 and
             (abs(self._mission[self._current_mission_index][1] - state_vector[States.Y])) < 0.2 and
             (abs(self._mission[self._current_mission_index][2] - state_vector[States.Z])) < 0.2 and
-            (abs(self._mission[self._current_mission_index][3] - state_vector[States.YAW])) < 0.001):
+            (abs(self._mission[self._current_mission_index][3] - state_vector[States.YAW])) < 0.01):
             if (len(self._mission)>self._current_mission_index+1):
                 self._current_mission_index += 1
                 self.set_target_position(self._mission[self._current_mission_index][0],

@@ -18,11 +18,11 @@ controller.position_controller_z.set_saturation_limit(-3, 3)
 controller.position_controller_z.integral_limit = 0.0
 
 
-controller.velocity_controller_x.set_pid_gains(0.1, 0, 0) #(0.05, 0, 0)
+controller.velocity_controller_x.set_pid_gains(0.07, 0, 0) #(0.05, 0, 0)
 controller.velocity_controller_x.set_saturation_limit(-0.5, 0.5)
 controller.velocity_controller_x.integral_limit = 1.0
 
-controller.velocity_controller_y.set_pid_gains(0.1, 0, 0) #(0.05, 0, 0)
+controller.velocity_controller_y.set_pid_gains(0.07, 0, 0) #(0.05, 0, 0)
 controller.velocity_controller_y.set_saturation_limit(-0.5, 0.5)
 controller.velocity_controller_y.integral_limit = 1.0
 
@@ -39,7 +39,7 @@ controller.roll_controller.set_pid_gains(1, 0, 0) #(1, 0, 0)
 controller.roll_controller.set_saturation_limit(-5, 5)
 controller.roll_controller.integral_limit = 0.0
 
-controller.yaw_controller.set_pid_gains(0.1, 0, 0.01) #(0.1, 0, 0.01)
+controller.yaw_controller.set_pid_gains(0.1, 0, 0.001) #(0.1, 0, 0.01)
 controller.yaw_controller.set_saturation_limit(-1, 1)
 controller.yaw_controller.integral_limit = 0.0
 
@@ -52,7 +52,7 @@ controller.roll_rate_controller.set_pid_gains(100, 0, 0) #(100, 0, 0)
 controller.roll_rate_controller.set_saturation_limit(-7, 7)
 controller.roll_rate_controller.integral_limit = 1.0
 
-controller.yaw_rate_controller.set_pid_gains(100, 0.5, 5) #(50, 0, 1.5)
+controller.yaw_rate_controller.set_pid_gains(500, 0.5, 1) #(50, 0, 1.5)
 controller.yaw_rate_controller.set_saturation_limit(-0.5, 0.5)
 controller.yaw_rate_controller.integral_limit = 0.0
 
